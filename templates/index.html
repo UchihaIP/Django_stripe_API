@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ item.name }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <script src="https://js.stripe.com/v3/"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
+    <script src="{% static 'js/buy_button.js' %}"></script>
+
+
+
+</head>
+<body>
+    <h3>{{ item.name }}</h3>
+    <p>Description: {{ item.description }}</p>
+    <p>Price {{ item.price }} rub</p>
+    <section>
+        <div>
+            <button type="button" id="buy-button">Buy</button>
+        </div>
+    </section>
+
+
+
+</body>
+</html>
