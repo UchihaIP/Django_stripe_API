@@ -19,11 +19,9 @@ class Command(BaseCommand):
                             price=randrange(1000, 100000))
                 items.append(item)
                 Item.objects.bulk_create(items)
-                print("Записи загружены")
         except IntegrityError:
             print("В вашей базе данных уже есть записи")
-
-
+        print("Записи загружены")
 
     def add_arguments(self, parser):
         parser.add_argument("count", nargs='?', default=20, type=int, help="Введите число записей")

@@ -1,7 +1,7 @@
 import os
 
-import dj_database_url
 from dotenv import load_dotenv
+import dj_database_url
 from pathlib import Path
 
 load_dotenv()
@@ -106,4 +106,5 @@ STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
 if DEBUG:
     CSRF_TRUSTED_ORIGINS = ['http://*', 'https://*']
 if not DEBUG:
-    CSRF_TRUSTED_ORIGINS = [f'http://{os.getenv("DJANGO_ALLOWED_HOSTS").split(" ")[2]}', f'https://{os.getenv("DJANGO_ALLOWED_HOSTS").split(" ")[2]}']
+    CSRF_TRUSTED_ORIGINS = [f'http://{os.getenv("DJANGO_ALLOWED_HOSTS").split(" ")[2]}',
+                            f'https://{os.getenv("DJANGO_ALLOWED_HOSTS").split(" ")[2]}']

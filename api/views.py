@@ -11,18 +11,9 @@ from .models import Item
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
-def _get_item_object(pk):
-    try:
-        item = Item.objects.get(pk=pk)
-    except Item.DoesNotExist:
-        return Response("Товар не найдет",
-                        status=status.HTTP_404_NOT_FOUND)
-
-    return item
-
-
 @csrf_exempt
 def stripe_config(request):
+    """Получение sessionID по запросу на /buy/{item_id}"""
     if request.method == 'GET':
         config = {'publicKey': settings.STRIPE_PUBLISHABLE_KEY}
         return JsonResponse(config, safe=False)
@@ -30,6 +21,9 @@ def stripe_config(request):
 
 @csrf_exempt
 def create_checkout_session(request, pk):
+    """
+    Страница создания checkout сессии после покупки товара
+    """
     item = _get_item_object(pk)
     if request.method == 'GET':
         base_url = f'http://{request.get_host()}'
@@ -56,17 +50,31 @@ def create_checkout_session(request, pk):
 
 
 class ItemPageView(DetailView):
+    """Страница с информацией о товаре"""
     template_name = 'itemdetail.html'
     model = Item
 
 
 class SuccessPageView(TemplateView):
+    """Страница с информацией об успешной транзакции"""
     template_name = 'success.html'
 
 
 class CancelPageView(TemplateView):
+    """Страница с информацией об отменной транзакции"""
     template_name = 'cancel.html'
 
 
 class StartPageView(TemplateView):
+    """Стартовая страница"""
     template_name = 'hello.html'
+
+
+def _get_item_object(pk):
+    try:
+        item = Item.objects.get(pk=pk)
+    except Item.DoesNotExist:
+        return Response("Товар не найдет",
+                        status=status.HTTP_404_NOT_FOUND)
+
+    return item
