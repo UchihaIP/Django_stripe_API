@@ -15,3 +15,6 @@ class Item(models.Model):
 
     def __str__(self):
         return self.name[15:]
+
+    def convert_cents_to_dollar(self):
+        return "{0:.2f}".format(self.price/100)
