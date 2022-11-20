@@ -12,6 +12,20 @@
   git clone https://github.com/UchihaIP/Django_stripe_API.git
   cd Django_stripe_API
 ```
+Создайте файл .env в корне проекта
+```
+SECRET_KEY=<SECRET_KEY из settings.py>
+STRIPE_SECRET_KEY=<SECRET KEY из Stripe>
+STRIPE_PUBLISHABLE_KEY=<PUBLISHABLE_KEY из Stripe>
+DB_NAME=<Имя БД>
+DB_PASSWORD=<Пароль БД>
+DB_USER=<Имя пользователя Postgres (default=postgres)>
+DB_HOST=<Адрес хоста>
+DB_PORT=<Порт БД>
+DEBUG=1
+DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1
+```
+
 Cоздать и активировать виртуальное окружение:
 ```bash
   python3 -m venv env 
