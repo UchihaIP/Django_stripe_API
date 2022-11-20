@@ -61,7 +61,7 @@ class SuccessPageView(TemplateView):
 
 
 class CancelPageView(TemplateView):
-    """Страница с информацией об отменной транзакции"""
+    """Страница с информацией об отмененной транзакции"""
     template_name = 'cancel.html'
 
 
