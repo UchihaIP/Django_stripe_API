@@ -55,14 +55,18 @@ def create_checkout_session(request, pk):
             return JsonResponse({'error': str(e)})
 
 
-class ItemView(DetailView):
-    template_name = 'index.html'
+class ItemPageView(DetailView):
+    template_name = 'itemdetail.html'
     model = Item
 
 
-class SuccessView(TemplateView):
+class SuccessPageView(TemplateView):
     template_name = 'success.html'
 
 
-class CancelView(TemplateView):
+class CancelPageView(TemplateView):
     template_name = 'cancel.html'
+
+
+class StartPageView(TemplateView):
+    template_name = 'hello.html'

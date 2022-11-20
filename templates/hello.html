@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}
+    Приветствую, коллега
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        Ссылки для тестирования:<br>
+        <a href="{% url 'item' 1 %}" class="btn btn-toolbar">Ссылка на первый продукт</a><br>
+        <a href="{% url 'item' 2 %}" class="btn btn-toolbar">Ссылка на второй продукт</a><br>
+        <a href="{% url 'item' 3 %}" class="btn btn-toolbar">Ссылка на третий продукт</a><br>
+        <a href="{% url 'item' 4 %}" class="btn btn-toolbar">Ссылка на четвертый продукт</a><br>
+
+        <a href="admin/" class="btn-primary">Админ панель</a>
+    </div>
+{% endblock %}
+

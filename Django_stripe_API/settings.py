@@ -1,5 +1,6 @@
 import os
 
+import dj_database_url
 from dotenv import load_dotenv
 from pathlib import Path
 
@@ -9,9 +10,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 
-DEBUG = True
+DEBUG = int(os.getenv('DEBUG', default=0))
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS').split(' ')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -56,10 +57,18 @@ WSGI_APPLICATION = 'Django_stripe_API.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT')
+
     }
 }
+DATABASE_URL = os.environ.get('DATABASE_URL')
+db_from_env = dj_database_url.config(default=DATABASE_URL, conn_max_age=500, ssl_require=True)
+DATABASES['default'].update(db_from_env)
 
 AUTH_PASSWORD_VALIDATORS = [
     {
