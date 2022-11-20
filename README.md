@@ -3,8 +3,7 @@
 
 Простой сервер с информацией о товаре и с формой оплаты на StripeAPI
 
-### Проект развернут на 
-[![heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)](https://sheltered-journey-95869.herokuapp.com)
+### Проект развернут на [![heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)](https://sheltered-journey-95869.herokuapp.com)
 
 ## Как запустить проект локально:
 Клонировать репозиторий и перейти в него в командной строке:
@@ -71,6 +70,7 @@ Cоздать и активировать виртуальное окружен�
 
 ## Author
 
-- [Рифат Хасанов](https://github.com/UchihaIP)
+Рифат Хасанов
+- [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/UchihaIP)
 - [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/lawlietLL)
 
